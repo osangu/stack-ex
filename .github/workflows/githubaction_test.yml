@@ -11,20 +11,20 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-  steps:
-    - name: pull code
-    - uses: actions/checkout@v2
+    steps:
+      - name: pull code
+      - uses: actions/checkout@v2
 
-    - name: Set up Python 3.9
-      uses: actions/setup-python@v1
-      with:
-        python-version: 3.9
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.9
 
-    - name: run pytest
-      run: |
-        python -m venv venv
-        source venv/bin/activate
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        pytest
-        pytest --cov
+      - name: run pytest
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pytest
+          pytest --cov
