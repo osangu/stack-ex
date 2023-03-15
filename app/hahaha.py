@@ -8,4 +8,3 @@ class Head(Node):
 
     def haha(self):
         return 'work?'
-a
