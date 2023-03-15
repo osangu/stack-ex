@@ -11,12 +11,16 @@ jobs:
   checkout:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Pull Code
+        uses: actions/checkout@v2
 
-      - name: Setu up Python 3.9
+      - name: Set up Python 3.9
         uses: actions/setup-python@v2
         with:
           python-version: 3.9
 
-      - name: Get Python Version
-        run: python3 -V
+      - name: Run and Get Code Coverage
+        run: |
+          python3 -m pip install --upgrade pip3
+          pip3 install -r requirements.txt
+          pytest --cov
