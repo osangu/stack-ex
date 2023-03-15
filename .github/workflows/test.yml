@@ -31,6 +31,7 @@ jobs:
           pytest --cov=app test
 
       - name: Generate Report
+        run: |
           coverage run --source=app -m pytest
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
