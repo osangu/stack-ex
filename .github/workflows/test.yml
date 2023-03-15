@@ -26,7 +26,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run Tests with Code Coverage
-        run: pytest --cov
+        run: pytest --cov=app test
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
