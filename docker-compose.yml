@@ -1,0 +1,55 @@
+
+
+services:
+
+  app:
+    image: hhgnoon/stackex:latest
+    tty: true
+    stdin_open: true
+
+    ports:
+      - "8000:8000"
+
+    restart: "no"
+
+
+  mysql:
+    image: mysql:latest
+    tty: true
+    stdin_open: true
+
+    ports:
+      - "3306:3306"
+    environment:
+      TZ: &{MYSQL_TZ}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+
+    restart: "no"
+
+  mongodb:
+    image: mongo:latest
+    tty: true
+    stdin_open: true
+
+    ports:
+      - "27017:27017"
+    environment:
+      TZ: ${MONGO_TZ}
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_NAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
+      MONGO_INITDB_DATABASE: ${MONGO_INIT_DB}
+      AUTH: true
+
+    restart: "no"
+
+  redis:
+    image: redis:latest
+    tty: true
+    stdin_open: true
+    ports:
+      - "6379:6379"
+    restart: "no"
+
+
+
+
