@@ -20,19 +20,22 @@ jobs:
         with:
           python-version: 3.9
 
-      - name: Install Python Dependencies
+      - name: Install Poetry
         run: |
-          python3 -m pip install --upgrade pip
-          pip install -r requirements.txt
+          curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python3
+
+      - name: Install Dependencies
+        run: |
+          poetry install
 
       - name: Test And Show Coverage Directly
         run: | 
-          pytest
-          pytest --cov=app test
+          poetry run pytest
+          poetry run pytest --cov=app test
 
       - name: Generate Report
         run: |
-          coverage run --source=app -m pytest
+          poetry run coverage run --source=app -m pytest
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
