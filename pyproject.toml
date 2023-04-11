@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "stack-ex"
+version = "0.1.0"
+description = "기술 스택 공부 아자아자"
+authors = ["osangu <osangu012@gmail.com>"]
+readme = "README.md"
+packages = [{include = "stack_ex"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+uvicorn = "^0.21.1"
+fastapi = "^0.95.0"
+pytest = "^7.3.0"
+pytest-cov = "^4.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
